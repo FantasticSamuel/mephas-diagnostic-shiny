@@ -1,0 +1,13 @@
+# R session / workspace junk (do not publish)
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+.Rproj.user/
+
+# macOS
+.DS_Store
+
+# Editor
+.idea/
+.vscode/
