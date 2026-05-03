@@ -73,8 +73,8 @@ checkLogin <- function(){
             
             //var userVal = document.cookie;
             //console.log('userVal的值：',userVal);
+            // Production default: require a valid userInfo cookie before continuing.
             let loginFlag = false;
-             loginFlag = true;
             if(userVal != ''){
                 var user0 = decodeURIComponent(userVal);
                 //console.log('user0的值：',user0);

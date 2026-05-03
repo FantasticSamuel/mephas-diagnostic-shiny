@@ -23,8 +23,8 @@ if (!require("plotly")) {
   install.packages("plotly")
 }
 library("plotly")
-if (!require(shinyMatrix)) {
-  install.packages(shinyMatrix)
+if (!require("shinyMatrix")) {
+  install.packages("shinyMatrix")
 }
 library(shinyMatrix)
 if (!require("shinyWidgets")) {
