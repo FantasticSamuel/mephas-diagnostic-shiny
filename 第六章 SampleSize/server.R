@@ -1,5 +1,5 @@
 #shinyServer(
-library(SINGLESAMPLE)
+library(SAMPLESIZE)
 source("mod_server_1.R", local = TRUE, encoding = "utf-8")
 source("mod_server_2.R", local = TRUE, encoding = "utf-8")
 source("mod_server_3.R", local = TRUE, encoding = "utf-8")
