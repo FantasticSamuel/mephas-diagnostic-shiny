@@ -19,8 +19,6 @@ server <- function(input, output, session) {
 mod_server_1("mod1")
 mod_server_2("mod2")
 mod_server_3("mod3")
-mod_server_3_ordinal_paired("mod3_ordinal_paired")
-mod_server_3_continuous_paired("mod3_continuous_paired")
 mod_server_3_continuous_unpaired("mod3_continuous_unpaired")
 # Ordinal Unpaired
 mod_server_3_ordinal_unpaired("mod3_ordinal_unpaired")
