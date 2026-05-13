@@ -58,22 +58,22 @@ mod_server_1 <- function(id) {
     
     output$PPV_Leisenring_result <- renderPrint({
       result <- Y()
-      result$PPV_Leisenring
+      result$PPV_Leisenring_result
     })
     
     output$NPV_Leisenring_result <- renderPrint({
       result <- Y()
-      result$NPV_Leisenring
+      result$NPV_Leisenring_result
     })
     
     output$PPV_Pepe_result <- renderPrint({
       result <- Y()
-      result$PPV_Pepe
+      result$PPV_Pepe_result
     })
     
     output$NPV_Pepe_result <- renderPrint({
       result <- Y()
-      result$NPV_Pepe
+      result$NPV_Pepe_result
     })
   })
 }
