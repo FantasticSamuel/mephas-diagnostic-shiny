@@ -1,10 +1,12 @@
 mod_server_13 <- function(id) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
+    generated_dims <- reactiveVal(NULL)
     
     observeEvent(input$generate, {
       I <- input$I
       K <- input$K
+      generated_dims(list(I = I, K = K))
       
       # 动态生成 Test 1 矩阵输入框
       output$matrix_inputs1 <- renderUI({
@@ -48,12 +50,23 @@ mod_server_13 <- function(id) {
       req(input$submit)
       I <- input$I
       K <- input$K 
+      dims <- generated_dims()
+      validate(
+        need(!is.null(dims), "请先生成输入框"),
+        need(isTRUE(dims$I == I && dims$K == K), "更改分级数或类别数后请重新生成输入框")
+      )
       data1 <- matrix(0, nrow = 2 * I, ncol = K)
       data2 <- matrix(0, nrow = 2 * I, ncol = K)
       for (i in 1:(2 * I)) {
         for (j in 1:K) {
-          data1[i, j] <- as.numeric(input[[paste0("data1_", i, "_", j)]])
-          data2[i, j] <- as.numeric(input[[paste0("data2_", i, "_", j)]])
+          data1_value <- input[[paste0("data1_", i, "_", j)]]
+          data2_value <- input[[paste0("data2_", i, "_", j)]]
+          validate(
+            need(!is.null(data1_value), "请先生成输入框"),
+            need(!is.null(data2_value), "请先生成输入框")
+          )
+          data1[i, j] <- as.numeric(data1_value)
+          data2[i, j] <- as.numeric(data2_value)
         }
       }
       alpha <- input$alpha

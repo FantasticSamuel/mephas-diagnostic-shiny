@@ -73,15 +73,20 @@ checkLogin <- function(){
             
             //var userVal = document.cookie;
             //console.log('userVal的值：',userVal);
+            //上线之后loginFlag = false为正确初始值
             let loginFlag = false;
-             loginFlag = true;
+            //let loginFlag = true; //调试情况下使用
             if(userVal != ''){
-                var user0 = decodeURIComponent(userVal);
-                //console.log('user0的值：',user0);
-                userObj = JSON.parse(user0);
-                //console.log('userObj[eMail].length的值：',userObj['eMail'].length);
-                if(userObj['eMail']!= null && userObj['eMail'].length !=0){
-                  loginFlag = true;
+                try {
+                  var user0 = decodeURIComponent(userVal);
+                  //console.log('user0的值：',user0);
+                  userObj = JSON.parse(user0);
+                  //console.log('userObj[eMail].length的值：',userObj['eMail'].length);
+                  if(userObj['eMail']!= null && userObj['eMail'].length !=0){
+                    loginFlag = true;
+                  }
+                } catch (e) {
+                  loginFlag = false;
                 }
             }
             if(!loginFlag){

@@ -1,22 +1,32 @@
 mod_server_8_ordinal_unpaired <- function(id) {
   moduleServer(id, function(input, output, session) {
-    output$result <- renderPrint({
+    Y <- eventReactive(input$run, {
       data1_no <- as.numeric(unlist(strsplit(input$data1_no, ",")))
       data2_no <- as.numeric(unlist(strsplit(input$data2_no, ",")))
       data1_yes <- as.numeric(unlist(strsplit(input$data1_yes, ",")))
       data2_yes <- as.numeric(unlist(strsplit(input$data2_yes, ",")))
       area_ordinal_unpaired(data1_no, data2_no, data1_yes, data2_yes, input$e1, input$e2, input$alpha)
     })
+    output$result <- renderPrint({
+      result <- Y()
+      req(result)
+      result
+    })
   })
 }
 mod_server_8_continuous_unpaired <- function(id) {
   moduleServer(id, function(input, output, session) {
-    output$result <- renderPrint({
+    Y <- eventReactive(input$run, {
       data1_no <- as.numeric(unlist(strsplit(input$data1_no, ",")))
       data2_no <- as.numeric(unlist(strsplit(input$data2_no, ",")))
       data1_yes <- as.numeric(unlist(strsplit(input$data1_yes, ",")))
       data2_yes <- as.numeric(unlist(strsplit(input$data2_yes, ",")))
       area_continuous_unpaired(data1_no, data2_no, data1_yes, data2_yes, input$e1, input$e2, input$alpha)
+    })
+    output$result <- renderPrint({
+      result <- Y()
+      req(result)
+      result
     })
   })
 }
@@ -115,6 +125,7 @@ mod_server_8_ordinal_paired <- function(id) {
     })
     output$result <- renderPrint({
       result <- Y()
+      req(result)
       result
     })
   })
@@ -122,12 +133,17 @@ mod_server_8_ordinal_paired <- function(id) {
 
 mod_server_8_continuous_paired <- function(id) {
   moduleServer(id, function(input, output, session) {
-    output$result <- renderPrint({
+    Y <- eventReactive(input$run, {
       data1_no <- as.numeric(unlist(strsplit(input$data1_no, ",")))
       data2_no <- as.numeric(unlist(strsplit(input$data2_no, ",")))
       data1_yes <- as.numeric(unlist(strsplit(input$data1_yes, ",")))
       data2_yes <- as.numeric(unlist(strsplit(input$data2_yes, ",")))
       area_continuous_paired(data1_no, data2_no, data1_yes, data2_yes, input$e1, input$e2, input$alpha)
+    })
+    output$result <- renderPrint({
+      result <- Y()
+      req(result)
+      result
     })
   })
 }
