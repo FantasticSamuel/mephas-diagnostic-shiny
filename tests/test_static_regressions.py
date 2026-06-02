@@ -28,9 +28,16 @@ class StaticRegressionTests(unittest.TestCase):
             "PPV_Pepe_result",
             "NPV_Pepe_result",
         ):
+            pattern = re.compile(
+                r"output\$"
+                + re.escape(result_name)
+                + r"\s*<-\s*renderPrint\(\{.*?result\$"
+                + re.escape(result_name),
+                re.DOTALL,
+            )
             self.assertRegex(
                 server,
-                rf"output\\${result_name}\\s*<-\\s*renderPrint\\(\\{{.*?result\\${result_name}",
+                pattern,
                 msg=f"{result_name} output should read the stored {result_name} list key",
             )
 
@@ -42,7 +49,7 @@ class StaticRegressionTests(unittest.TestCase):
         for module_id in ("mod3_continuous_paired", "mod3_ordinal_paired"):
             self.assertEqual(
                 1,
-                len(re.findall(rf'{module_id}\\("{module_id}"\\)', server)),
+                server.count(f'{module_id}("{module_id}")'),
                 msg=f"{module_id} should be registered exactly once",
             )
 
