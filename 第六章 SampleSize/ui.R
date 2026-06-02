@@ -36,7 +36,10 @@ if (!require("foreign")) {
 }
 library("foreign")
 Sys.setlocale(locale = "Chinese")
-library(SAMPLESIZE)
+if (!require("SAMPLESIZE")) {
+  install.packages("SAMPLESIZE")
+}
+library("SAMPLESIZE")
 library(shinythemes)
 source("../tab/tab_cn_causal.R", encoding="utf-8")
 source("../tab/panel_plotinfo_cn.R", encoding = "utf-8")
