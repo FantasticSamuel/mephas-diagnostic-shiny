@@ -26,6 +26,8 @@ mod_ui_1 <- function(id) {
       actionButton(ns("submit"), "计算")
     ),
     mainPanel(
+      h4("SeSp_result"),
+      verbatimTextOutput(ns("SeSp_result")),
       h4("PPV_Leisenring_result"),
       verbatimTextOutput(ns("PPV_Leisenring_result")),
       h4("NPV_Leisenring_result"),

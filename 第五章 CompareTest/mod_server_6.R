@@ -21,7 +21,7 @@ mod_server_6_continuous_paired <- function(id) {
       data1_yes <- as.numeric(unlist(strsplit(input$data1_yes, ",")))
       data2_yes <- as.numeric(unlist(strsplit(input$data2_yes, ",")))
       alpha <- input$alpha
-      differ_continuous_paired(data1_no, data2_no, data1_yes, data2_yes, alpha)
+      differ_continuous_paired(data1_no, data1_yes, data2_no, data2_yes, alpha)
     })
     output$result <- renderPrint({
       result()

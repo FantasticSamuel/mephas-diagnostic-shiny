@@ -33,7 +33,7 @@ mod_server_7 <- function(id) {
       req(res)
       paste(
         "n（需要的患病人数）_one (单侧检验样本量 - 阳性预测值):", res$n_one, "\n",
-        "n（需要的患病人数）_two (双侧检验样本量 - 阳性预测值):", res$n_two
+        "N（需要的总人数）_one (单侧检验总样本量 - 阳性预测值):", res$N_one
       )
     })
     
@@ -42,7 +42,7 @@ mod_server_7 <- function(id) {
       req(res)
       paste(
         "n（需要的患病人数）_two (双侧检验样本量 - 阳性预测值):", res$n_two, "\n",
-        "n（需要的患病人数）_two (双侧检验样本量 - 阳性预测值):", res$n_two
+        "N（需要的总人数）_two (双侧检验总样本量 - 阳性预测值):", res$N_two
       )
     })
     
@@ -51,7 +51,7 @@ mod_server_7 <- function(id) {
       req(res)
       paste(
         "n（需要的患病人数）_one (单侧检验样本量 - 阴性预测值):", res$n_one, "\n",
-        "n（需要的患病人数）_two (双侧检验样本量 - 阴性预测值):", res$n_two
+        "N（需要的总人数）_one (单侧检验总样本量 - 阴性预测值):", res$N_one
       )
     })
     
@@ -60,7 +60,7 @@ mod_server_7 <- function(id) {
       req(res)
       paste(
         "n（需要的患病人数）_two (双侧检验样本量 - 阴性预测值):", res$n_two, "\n",
-        "n（需要的患病人数）_two (双侧检验样本量 - 阴性预测值):", res$n_two
+        "N（需要的总人数）_two (双侧检验总样本量 - 阴性预测值):", res$N_two
       )
     })
   })
