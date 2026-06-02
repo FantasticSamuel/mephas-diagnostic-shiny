@@ -49,7 +49,7 @@ class StaticRegressionTests(unittest.TestCase):
         for module_id in ("mod3_continuous_paired", "mod3_ordinal_paired"):
             self.assertEqual(
                 1,
-                server.count(f'{module_id}("{module_id}")'),
+                server.count(f'"{module_id}"'),
                 msg=f"{module_id} should be registered exactly once",
             )
 
