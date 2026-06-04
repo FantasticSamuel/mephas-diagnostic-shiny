@@ -24,10 +24,6 @@ mod_server_3_continuous_paired("mod3_continuous_paired")
 mod_server_3_continuous_unpaired("mod3_continuous_unpaired")
 # Ordinal Unpaired
 mod_server_3_ordinal_unpaired("mod3_ordinal_unpaired")
-# Continuous Paired
-mod_server_3_continuous_paired("mod3_continuous_paired")
-# Ordinal Paired
-mod_server_3_ordinal_paired("mod3_ordinal_paired")
 # Box-Cox Transformation
 mod_server_boxcox("mod4_boxcox")
 
