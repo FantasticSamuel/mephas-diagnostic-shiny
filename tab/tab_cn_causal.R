@@ -74,7 +74,6 @@ checkLogin <- function(){
             //var userVal = document.cookie;
             //console.log('userVal的值：',userVal);
             let loginFlag = false;
-             loginFlag = true;
             if(userVal != ''){
                 var user0 = decodeURIComponent(userVal);
                 //console.log('user0的值：',user0);
