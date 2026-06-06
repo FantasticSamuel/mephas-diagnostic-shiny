@@ -74,8 +74,8 @@ checkLogin <- function(){
             //var userVal = document.cookie;
             //console.log('userVal的值：',userVal);
             let loginFlag = false;
-             loginFlag = true;
             if(userVal != ''){
+              try {
                 var user0 = decodeURIComponent(userVal);
                 //console.log('user0的值：',user0);
                 userObj = JSON.parse(user0);
@@ -83,6 +83,9 @@ checkLogin <- function(){
                 if(userObj['eMail']!= null && userObj['eMail'].length !=0){
                   loginFlag = true;
                 }
+              } catch (e) {
+                loginFlag = false;
+              }
             }
             if(!loginFlag){
               window.location.href= 'http://"
